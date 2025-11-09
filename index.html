@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mensaje para Sara</title>
+  <style>
+    :root{--bg:#0f172a;--card:#0b1220;--accent:#7c3aed;--muted:#94a3b8}
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      color:#e6eef8;
+      background:linear-gradient(180deg,var(--bg),#071029);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      overflow:hidden;
+    }
+
+    /* FLORES ANIMADAS */
+    .rose {
+      position: absolute;
+      font-size: 28px;
+      animation: float 12s linear infinite, sway 3.5s ease-in-out infinite alternate;
+      opacity: 0.9;
+      pointer-events:none;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-130vh) rotate(360deg); }
+    }
+
+    @keyframes sway {
+      0% { margin-left: -40px; }
+      100% { margin-left: 40px; }
+    }
+
+    /* TARJETA */
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:28px;border-radius:16px;max-width:720px;width:100%;box-shadow:0 8px 30px rgba(2,6,23,0.6);position:relative;z-index:10}
+    h1{margin:0 0 8px;font-size:22px}
+    p.lead{margin:0 0 18px;color:var(--muted);line-height:1.5}
+    .message{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;border:1px dashed rgba(255,255,255,0.03);}
+    .controls{display:flex;gap:8px;margin-top:18px}
+    button{background:var(--accent);border:0;padding:10px 12px;border-radius:10px;color:white;font-weight:600;cursor:pointer}
+    footer{margin-top:18px;font-size:13px;color:var(--muted);text-align:right}
+    @media (max-width:520px){.card{padding:18px}h1{font-size:18px}}
+    
+  </style>
+</head>
+<body>
+
+  <!-- ROSAS ANIMADAS -->
+  <script>
+    const roses = ["🌹","🥀","🌸","🌺"];
+    for (let i = 0; i < 30; i++) {
+      let r = document.createElement("div");
+      r.className = "rose";
+      r.innerText = roses[Math.floor(Math.random() * roses.length)];
+      r.style.left = Math.random() * 100 + "vw";
+      r.style.animationDuration = (9 + Math.random() * 10) + "s";
+      r.style.fontSize = (25 + Math.random() * 35) + "px";
+      document.body.appendChild(r);
+    }
+  </script>
+
+  <main class="card">
+    <h1>Para Sara — un mensajito</h1>
+    <p class="lead">Sara, desde que apareciste en mi vida, todo empezó a sentirse distinto. No fue algo grande o dramático… fue como cuando de repente el día se siente más liviano sin saber por qué. Y luego entendí: eras tú.</p>
+
+    <div class="message" id="mensaje">
+      <p style="margin:0 0 14px; line-height:1.6;">No sé si tú lo notas, pero cuando hablo contigo, hasta las cosas que antes me daban pereza ahora se sienten un poco más fáciles. Me gusta cómo eres: cómo te ríes, cómo hablas, cómo a veces te haces la seria pero igual se nota que te da risa. Y desde que te conocí, algo en mi día cambió.</p>
+
+      <p style="margin:0 0 14px; line-height:1.6;">A veces me pongo a pensar en cómo hubiera sido mi vida si no te hubiera encontrado. Y sinceramente, no me gusta esa versión. Porque tú hiciste que mis días se sintieran un poquito más vivos. No fue algo grande, fue algo constante. Y lo constante es bonito.</p>
+
+      <p style="margin:0 0 14px; line-height:1.6;">Y pues… solo quería que lo supieras. Porque hay cosas que uno siente, pero si no las dice, se quedan guardadas. Y tú mereces saber lo que causas en alguien.</p>
+
+      <p style="margin:0 0 14px; line-height:1.6; font-weight:600;">No es una pregunta, ni una presión… solo una pequeña indirecta. A veces, las mejores cosas empiezan con un "¿y si…?"</p>
+
+      <p style="margin:0; line-height:1.6;">Y si ese <b>"¿y si…?"</b> algún día lo intentáramos tú y yo, sin prisas, sin expectativas, solo dejándonos sentir… creo que podría ser algo bonito. Algo que valga la pena recordar.</p>
+    </div>
+
+    <div class="controls">
+      <button id="copiar">Copiar mensaje</button>
+    </div>
+
+    <footer>Hecho con cariño 🧡</footer>
+  </main>
+
+
+
+</body>
+</html>
